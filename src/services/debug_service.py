@@ -1,3 +1,5 @@
+# Managed by LLM AI
+
 from src.services.ai_service import ask
 from src.tools.terminal_tools import run_command
 from src.services.project_service import analyze_project

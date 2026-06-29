@@ -62,3 +62,18 @@ def list_source_files(root: str):
             files.append(file)
 
     return files
+
+
+
+
+def restore_backup(path: str):
+
+    file_path = Path(path)
+
+    backup = file_path.with_suffix(
+        file_path.suffix + ".bak"
+    )
+
+    if backup.exists():
+
+        shutil.copy(backup, file_path)

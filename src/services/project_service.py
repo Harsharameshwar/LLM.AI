@@ -1,4 +1,5 @@
 from pathlib import Path
+from src.tools.terminal_tools import run_command
 import json
 
 
@@ -89,3 +90,18 @@ def analyze_project(project_path: str) -> dict:
         return result
 
     return result
+
+
+def build_project(project_path: str = "."):
+
+    info = analyze_project(project_path)
+
+    build_command = info.get("build_command")
+
+    if not build_command:
+        return None
+
+    return run_command(
+        build_command,
+        cwd=project_path,
+    )

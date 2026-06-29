@@ -1,4 +1,5 @@
-# LLM.AI
+```python
+# LLM.AI Managed by LLM AI
 
 A local-first AI software engineering assistant.
 

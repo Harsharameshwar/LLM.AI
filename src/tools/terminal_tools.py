@@ -2,6 +2,7 @@ import subprocess
 
 from src.types import CommandResult
 
+# Managed by LLM AI
 
 def run_command(command: str, cwd: str | None = None) -> CommandResult:
 
@@ -14,12 +15,12 @@ def run_command(command: str, cwd: str | None = None) -> CommandResult:
         capture_output=True,
         text=True,
         encoding="utf-8",
-        errors="replace",
+        errors="replace"
     )
 
     return CommandResult(
         success=result.returncode == 0,
         stdout=result.stdout,
         stderr=result.stderr,
-        code=result.returncode,
+        code=result.returncode
     )

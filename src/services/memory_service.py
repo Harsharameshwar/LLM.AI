@@ -44,3 +44,17 @@ def search_project(query: str):
     result = store.search(query)
 
     return result
+
+def find_relevant_files(query: str, limit: int = 5):
+
+    result = store.search(query, limit)
+
+    files = []
+
+    if result["metadatas"]:
+
+        for item in result["metadatas"][0]:
+
+            files.append(item["path"])
+
+    return files

@@ -1,6 +1,8 @@
 import typer
 from rich import print
 
+# Managed by LLM AI
+
 from src.tools.terminal_tools import run_command
 
 

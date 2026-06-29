@@ -1,5 +1,6 @@
 import typer
 from rich import print
+from src.services.code_service import modify_project
 
 from src.services.code_service import (
     generate_code,
@@ -58,3 +59,30 @@ def refactor(path: str):
     write_file(path, refactored)
 
     print(f"[green]Refactored:[/green] {path}")
+
+
+@app.command()
+def modify(
+    request: str = typer.Argument(
+        ...,
+        help="Modification request",
+    )
+):
+    print("[yellow]Searching project memory...[/yellow]")
+
+    result = modify_project(request)
+
+    print(result)
+
+@app.command()
+def plan(
+    request: str = typer.Argument(
+        ...,
+        help="Requested modification",
+    )
+):
+    print("[yellow]Planning changes...[/yellow]")
+
+    result = modify_project(request)
+
+    print(result)
